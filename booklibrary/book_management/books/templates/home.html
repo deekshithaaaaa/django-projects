@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        
+        
+        {{ form.as_p }}
+        <input type="submit">
+    </form>
+    {% for i in books %}
+    <p>Title:{{ i.title }}</p>
+    <p>Author:{{ i.author }}</p>
+    <p>Price:{{ i.price }}</p>n
+    <a href="/edit/{{i.id}}">Edit</a>
+    <a href="/delete/{{ i.id }}">Delete</a>
+    {% endfor %}
+</body>
+</html>
