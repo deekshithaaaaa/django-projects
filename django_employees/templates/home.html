@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>Employee Records</h2>
+  <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Department</th>
+            <th>Manager</th>
+            <th>Active?</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in employees %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.full_name }}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.salary}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.manager}}</td>
+            <td>{{i.is_active}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
